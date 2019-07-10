@@ -14,6 +14,7 @@ final class Extension {
 	public function new(context:ExtensionContext) {
 		SdkManager.initialize(error -> Vscode.window.showErrorMessage(error), function(sdk:SdkManager) {
 			final dm:DeviceManager = new DeviceManager(sdk);
+			final pm:ProjectManager = new ProjectManager();
 			context.subscriptions.push(Vscode.commands.registerCommand("muroktoolvsc.luanch_emulator", dm.registerLaunchEmulatorCommand));
 		});
 	}
@@ -77,5 +78,23 @@ final class DeviceManager {
 				Vscode.window.showErrorMessage(Std.string(error.message));
 			}
 		});
+	}
+}
+
+final class ProjectManager {
+	public function new() {
+
+	}
+
+	public function registerInitCommand():Void {
+		throw "Not implemented.";
+	}
+
+	public function registerCleanupCommand():Void {
+		throw "Not implemented.";
+	}
+
+	public function registerGenerateCommand():Void {
+		throw "Not implemented.";
 	}
 }
