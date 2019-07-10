@@ -1,10 +1,12 @@
 -L hxnodejs
 -L vscode
+
 -p ./src
+
 -D analyzer-optimize
 -dce full
 
 -js ./extension.js
---macro nullSafety("", Loose)
+--macro nullSafety("murkotool", Loose)
 
-Extension
+murkotool.Extension

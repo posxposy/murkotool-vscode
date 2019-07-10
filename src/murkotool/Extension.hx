@@ -1,4 +1,4 @@
-package;
+package murkotool;
 
 import js.node.Buffer;
 import js.Node;
@@ -8,6 +8,9 @@ import vscode.*;
 final class Extension {
 	@:expose("activate")
 	static function activate(context:ExtensionContext) {
+		#if debug
+		Node.require("source-map-support").install();
+		#end
 		new Extension(context);
 	}
 
@@ -41,6 +44,7 @@ final class SdkManager {
 
 final class DeviceManager {
 	final sdk:SdkManager;
+
 	public function new(sdk:SdkManager) {
 		this.sdk = sdk;
 	}
@@ -82,9 +86,7 @@ final class DeviceManager {
 }
 
 final class ProjectManager {
-	public function new() {
-
-	}
+	public function new() {}
 
 	public function registerInitCommand():Void {
 		throw "Not implemented.";
